@@ -29,7 +29,7 @@ if(isset($_POST['create'])){
   } else {
     echo "Greska: " . $sql . "<br>" . $conn->error;
   } 
-   $sql2="INSERT INTO Stanje (ID_Proizvoda) VALUES (global '$id')";
+   $sql2="INSERT INTO Stanje (ID_Proizvoda) VALUES ('$id')";
    if ($conn->query($sql2) === TRUE) {
    echo  "Proizvod ".$name . " ima ID: " . $id ."<br>";
    } else {
