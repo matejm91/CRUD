@@ -3,14 +3,14 @@
 <head> 
 	<meta charset="utf-8">  
 </head>
-
-	<body> 
-	<h3>Stvori proizvod</h3> 
-	</body>	
-		<br><form  method="POST" action="create.php" id="searchform" > 
-		<input  type="text" name="ime_stvori"> 
-		<input  type="submit" name="create" value="Create"></br> 
-		</form> 
+<body>
+	
+<h3>Stvori proizvod</h3> 
+	
+<br><form  method="POST" action="create.php" id="searchform" > 
+<input  type="text" name="ime_stvori"> 
+<input  type="submit" name="create" value="Create"></br> 
+</form> 
 
 <?php
 $servername = "localhost";
@@ -33,11 +33,9 @@ if(isset($_POST['create'])){
 
 $conn->close();
 ?>
- 
-	<body> 
-		<h3>Vrati se na pocetnu</h3>
-	</body>
-		<form action="http://sve91.com.hr/index.php">
-		<input type="submit" value="OK">
+<h3>Vrati se na pocetnu</h3>
+<form action="http://sve91.com.hr/index.php">
+<input type="submit" value="OK">
 </form>
+</body>
 </html>
