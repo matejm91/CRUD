@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<head> 
-
- <title>Promijeni podatke</title> 
-</head> 
+	<head> 
+	<meta  http-equiv="Content-Type" content="text/html";  charset="utf-8">  
+	</head>
 <p><body> 
- <h3>Stvori proizvod</h3>  
- <br><form  method="POST" action="create.php" id="searchform" > 
-   <input  type="text" name="ime_stvori"> 
-   <input  type="submit" name="create" value="Create"></br> 
-</form> 
+	<h3>Stvori proizvod</h3>  
+	<br><form  method="POST" action="create.php" id="searchform" > 
+	<input  type="text" name="ime_stvori"> 
+	<input  type="submit" name="create" value="Create"></br> 
+	</form> 
 
 <?php
 $servername = "localhost";
@@ -20,33 +18,26 @@ $password = "06Stlu6fO2";
 $ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 
-if(isset($_POST['create'])){ 
+if(isset($_POST['create'])){
+  mysqli_set_charset($conn,'utf-8');	
   $name=$_POST['ime_stvori'];
-  $sql="INSERT INTO Proizvod (Naziv) VALUES ('$name')";
+  mysqli_query($conn,"INSERT INTO Proizvod (Naziv) VALUES ('$name')");
+  $id=mysqli_insert_id($conn);
+  $sql="INSERT INTO Stanje (ID_Proizvoda) VALUES ('$id')";
   if ($conn->query($sql) === TRUE) {
-	$id=$row['ID']; 
-    echo "bravo, stvorio si proizvod ".$name."<br>";
+    echo "bravo, unio si proizvod ".$name." koji ima ID: ".$id."<br>";
   } else {
     echo "Greska: " . $sql . "<br>" . $conn->error;
   } 
-   $sql2="INSERT INTO Stanje (ID_Proizvoda) VALUES ('$id')";
-   if ($conn->query($sql2) === TRUE) {
-   echo  "Proizvod ".$name . " ima ID: " . $id ."<br>";
-   } else {
-   echo "nesto ne valja";
-   }
 }
+
 $conn->close();
 ?>
-
-<head> 
-<meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1">  
-</head> 
+ 
 <p><body> 
  <h3>Vrati se na pocetnu</h3> 
     <form action="http://sve91.com.hr/index.php">
     <input type="submit" value="OK">
 </form>
-
 </body>
 </html>
