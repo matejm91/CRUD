@@ -3,7 +3,7 @@
 <head> 
 	<meta charset="utf-8">  
 </head>
-
+<body>
 <?php
 $servername = "localhost";
 $username = "svecomhr";
@@ -31,10 +31,10 @@ if(isset($_POST['submit'])){
 $conn->close();
 ?>
  
-	<body> 
-		<h3>Vrati se na pocetnu</h3>
-	</body>
-		<form action="http://sve91.com.hr/index.php">
-		<input type="submit" value="OK">
+
+<h3>Vrati se na pocetnu</h3>
+<form action="http://sve91.com.hr/index.php">
+<input type="submit" value="OK">
 </form>
+</body>
 </html>
