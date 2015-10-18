@@ -4,9 +4,9 @@
 
 <?php
 $servername = "localhost";
-$username = "**********";
-$password = "**********";
-$ime_baze = "**************";
+$username = "******";
+$password = "*****";
+$ime_baze = "*********";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 
 // Check connection
@@ -20,22 +20,22 @@ $conn->close();
 
 
 <head> 
-<meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1"> 
+<meta charset="utf-8"> 
 <title>Trazi proizvod</title> 
 </head> 
-<p><body> 
+ 
  <h3>Trazi proizvod</h3> 
  <p>Pretraga moguca po imenu</p> 
- <form  method="post" action="select.php" id="searchform" > 
+ <form  method="post" form accept-charset="utf-8" action="select.php" id="searchform" > 
    <input  type="text" name="name"> 
    <input  type="submit" name="submit" value="Search"> 
 </form>
 
 <head> 
-<meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1"> 
+<meta charset="utf-8"> 
 <title>Trazi proizvod</title> 
 </head> 
-<p><body> 
+ 
  <h3>Unos novog proizvoda</h3> 
     <form action="http://sve91.com.hr/create.php">
     <input type="submit" value="Novi proizvod">
