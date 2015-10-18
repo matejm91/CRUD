@@ -4,13 +4,13 @@
 	<meta charset="utf-8">  
 </head>
 <body>
-<?php
+<?php 
 $servername = "localhost";
 $username = "svecomhr";
 $password = "06Stlu6fO2";
 $ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
-mysqli_set_charset($conn,'utf-8');
+mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['submit'])){ 
   if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){	  
   $name=$_POST['name']; 
