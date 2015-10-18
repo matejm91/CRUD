@@ -7,18 +7,18 @@
 	
 <h3>Stvori proizvod</h3> 
 	
-<br><form  method="POST" action="create.php" id="searchform" > 
+<br><form  method="POST" form accept-charset="utf-8" action="create.php" id="searchform" > 
 <input  type="text" name="ime_stvori"> 
 <input  type="submit" name="create" value="Create"></br> 
 </form> 
 
-<?php
+<?php 
 $servername = "localhost";
 $username = "svecomhr";
 $password = "06Stlu6fO2";
 $ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
-mysqli_set_charset($conn,'utf-8');
+mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['create'])){	
   $name=$_POST['ime_stvori'];
   mysqli_query($conn,"INSERT INTO Proizvod (Naziv) VALUES ('$name')");
