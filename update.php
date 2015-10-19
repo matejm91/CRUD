@@ -13,16 +13,16 @@
 </form> 
 
 <?php 
-$servername = "******";
-$username = "********";
-$password = "*******";
-$ime_baze = "*************";
+$servername = "localhost";
+$username = "svecomhr";
+$password = "06Stlu6fO2";
+$ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['update'])){ 
   if($_POST['kolicina']){	  
   $kolicina=$_POST['kolicina'];
-  $sql="UPDATE Proizvod, Stanje SET Stanje.Kolicina = $kolicina WHERE Proizvod.Naziv = $name AND Proizvod.ID = Stanje.ID_Proizvoda"; 
+  $sql="UPDATE Stanje SET Kolicina=$kolicina WHERE ID_Proizvoda=ID"; 
   if ($conn->query($sql) === TRUE) { 
   	echo "Stanje je sada" . $kolicina . " komada!!	"."<br>";
   	}
