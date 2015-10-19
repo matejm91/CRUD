@@ -24,7 +24,7 @@ if(isset($_POST['update'])){
   $kolicina=$_POST['kolicina'];
   $sql="UPDATE Stanje SET Kolicina=$kolicina WHERE ID_Proizvoda=ID"; 
   if ($conn->query($sql) === TRUE) { 
-  	echo "Stanje je sada" . $kolicina . " komada!!	"."<br>";
+  	echo "Stanje je sada " . $kolicina . " komada!!	"."<br>";
   	}
   }
   else{ 
