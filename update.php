@@ -8,21 +8,23 @@
 <h3>Promijeni stanje proizvodu</h3> 
 	
 <br><form  method="POST" form accept-charset="utf-8" action="update.php" id="searchform" > 
-<input  type="number" name="kolicina"> 
+<input  type="text" name="naziv" value=""> 
+<input  type="number" name="kolicina" value=""> 
 <input  type="submit" name="update" value="Promijeni količinu"></br> 
 </form> 
 
 <?php 
 $servername = "localhost";
-$username = "svecomhr";
-$password = "06Stlu6fO2";
-$ime_baze = "svecomhr_Skladiste-Pulvis1";
+$username = "*********";
+$password = "********";
+$ime_baze = "**************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
-if(isset($_POST['update'])){ 
+if(isset($_POST['submit'])){ 
   if($_POST['kolicina']){	  
   $kolicina=$_POST['kolicina'];
-  $sql="UPDATE Stanje SET Kolicina=$kolicina WHERE ID_Proizvoda=ID"; 
+  $id=$_GET[''];
+  $sql="UPDATE Stanje SET Kolicina=$kolicina WHERE ID_Proizvoda=$id"; 
   if ($conn->query($sql) === TRUE) { 
   	echo "Stanje je sada " . $kolicina . " komada!!	"."<br>";
   	}
@@ -31,8 +33,7 @@ if(isset($_POST['update'])){
   echo  "<p>nest ne valja</p>";     
   }
   }
- 
-$conn->close();
+$conn->close(); 
 ?>
 
 <h3>Vrati se na pocetnu</h3>
