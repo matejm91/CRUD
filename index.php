@@ -28,9 +28,9 @@
 <br>
 <?php
 $servername = "localhost";
-$username = "**********";
-$password = "**********";
-$ime_baze = "***********";
+$username = "svecomhr";
+$password = "06Stlu6fO2";
+$ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
@@ -39,8 +39,8 @@ $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $
   	while($row= $result->fetch_assoc()){ 
          $Naziv  =$row['Naziv'];  
          $Kolicina=$row['Kolicina'];
-		 $id=$row['ID_Proizvoda'];
-  		echo "Stanje ".$Naziv . " je " . $Kolicina . " komada!!	"."<a href='update.php?value1=$id'>Promijeni</a> "." <a href=\"http://sve91.com.hr/delete.php\">iksić</a>"."<br>";
+	 $id=$row['ID_Proizvoda'];
+	 	echo "Stanje ".$Naziv . " je " . $Kolicina . " komada!!	"."<a href='http://www.sve91.com.hr/update.php?id=$id'>Promijeni</a> "." <a href=\"http://sve91.com.hr/delete.php\">iksić</a>"."<br>";
   	}
   }
   else{ 
