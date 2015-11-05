@@ -7,9 +7,9 @@
 
 <?php
 $servername = "localhost";
-$username = "********";
+$username = "**********";
 $password = "**********";
-$ime_baze = "***************";
+$ime_baze = "********************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
@@ -25,7 +25,7 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 		<br><form method="post" form accept-charset="utf-8" action="update.php" id="searchform">
 	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
 	        <input  type="submit" name="prom" value="Promijeni količinu">
-	        <input type="number" name="id" value= '.$id1.'></br>
+	        <input type="hidden" name="id" value= '.$id1.'></br>
 	        </form>';
 		}
 		} 
@@ -44,16 +44,12 @@ if (isset($_POST['prom'])){
 	echo "<br>Spremljeno! Stanje je sada ".$Kolicina."</br>";
 	}
 	else{
-	echo "nest nije ok";
+	echo "Nešto nije u redu";
 }
 }
 }	
 $conn->close()
 ?>
-
-<h3>Vrati se na pocetnu</h3>
-<form action="http://sve91.com.hr/index.php">
-<input type="submit" value="OK">
-</form>
+<a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a>
 </body>
 </html>
