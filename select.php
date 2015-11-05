@@ -7,9 +7,9 @@
 
 <?php 
 $servername = "localhost";
-$username = "********";
-$password = "*******";
-$ime_baze = "*********";
+$username = "svecomhr";
+$password = "06Stlu6fO2";
+$ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['submit'])){ 
@@ -21,22 +21,18 @@ if(isset($_POST['submit'])){
   	while($row= $result->fetch_assoc()){ 
          $Naziv  =$row['Naziv'];  
          $Kolicina=$row['Kolicina'];
-		 $id=$row['ID_Proizvoda'];
-  	echo "Stanje ".$Naziv . " je " . $Kolicina . " komada!!	"."<a href='update.php?value1=$id'>Promijeni</a>"."<br>";
+	 $id=$row['ID_Proizvoda'];
+  	echo "Stanje ".$Naziv . " je " . $Kolicina . " komada	"."<a href='http://www.sve91.com.hr/update.php?id=$id'>Promijeni</a>"." <a href=\"http://sve91.com.hr/delete.php\">iksić</a>"."<br>";
   	}
   }
   else{ 
-  echo  "<p>Please enter a search query</p>";     
+  echo  "<p>Molimo unesite upit za pretraživanje</p>";     
   }
   }
   } 
  
 $conn->close();
 ?>
-
-<h3>Vrati se na pocetnu</h3>
-<form action="http://sve91.com.hr/index.php">
-<input type="submit" value="OK">
-</form>
+<a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a>
 </body>
 </html>
