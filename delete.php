@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
 <?php
 $servername = "localhost";
-$username = "***********";
-$password = ***********";
-$ime_baze = "*************";
+$username = "********";
+$password = "****************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);  
 $id = $_GET['id'];
 
@@ -13,12 +9,10 @@ $id = $_GET['id'];
 	$query="DELETE FROM Proizvod WHERE ID = '$id'";
 	$result=mysqli_query($conn, $query);	
 	if ($result === TRUE){
-	echo "Proizvod obrisan";
+	header('Location:index.php');
 	}
 	else{
 	echo "Nesto nije u redu!";
 }
 $conn->close();
 ?> 
-</body>
-</html>
