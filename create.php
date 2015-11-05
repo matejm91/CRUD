@@ -14,9 +14,9 @@
 
 <?php 
 $servername = "localhost";
-$username = "********";
-$password = "**********";
-$ime_baze = "*******************";
+$username = "svecomhr";
+$password = "06Stlu6fO2";
+$ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['create'])){	
@@ -25,7 +25,7 @@ if(isset($_POST['create'])){
   $id=mysqli_insert_id($conn);
   $sql="INSERT INTO Stanje (ID_Proizvoda) VALUES ('$id')";
   if ($conn->query($sql) === TRUE) {
-    echo "bravo, unio si proizvod ".$name." koji ima ID: ".$id."<br>";
+    echo "Unijeli ste proizvod ".$name." koji ima ID: ".$id."<br>";
   } else {
     echo "Greska: " . $sql . "<br>" . $conn->error;
   } 
@@ -33,9 +33,6 @@ if(isset($_POST['create'])){
 
 $conn->close();
 ?>
-<h3>Vrati se na pocetnu</h3>
-<form action="http://sve91.com.hr/index.php">
-<input type="submit" value="OK">
-</form>
+<a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a>
 </body>
 </html>
