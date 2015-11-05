@@ -37,17 +37,17 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 
 if (isset($_POST['prom'])){	
 	if ($_POST['kolicina']){
+	if ($_POST['id']){
+	$id=$_POST['id'];
 	$Kolicina=$_POST['kolicina'];
-	$result1=mysqli_query($conn,"UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id1'");
-		if ($result === TRUE) {
-	echo "<br>Saved! Stanje ".$Naziv." je sada ".$Kolicina."</br>";
+	$result1=mysqli_query($conn, "UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id' ");
+	echo "<br>Spremljeno! Stanje je sada ".$Kolicina."</br>";
 	}
 	else{
 	echo "nest nije ok";
 }
 }
-}
-	
+}	
 $conn->close()
 ?>
 
