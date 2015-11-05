@@ -7,16 +7,14 @@
 
 <?php
 $servername = "localhost";
-$username = "*******";
-$password = "********";
-$ime_baze = "*************";
+$username = "svecomhr";
+$password = "06Stlu6fO2";
+$ime_baze = "svecomhr_Skladiste-Pulvis1";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 	$id1=$_GET['id'];
-	$kolicina=$_POST['naziv'];
-	$sql1="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID='$id1' AND Stanje.ID_Proizvoda='$id1'";
-	$result=mysqli_query($conn, $sql1);
+	$result=mysqli_query($conn, "SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID='$id1' AND Stanje.ID_Proizvoda='$id1'");
 	if ($result->num_rows > 0) { 
 		while($row= $result->fetch_assoc()){ 
        	 	 $Naziv  =$row['Naziv'];  
@@ -25,8 +23,8 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
   		echo '<h3>Promijeni stanje proizvodu</h3>
 
 		<br><form method="post" form accept-charset="utf-8" action="update.php" id="searchform">
-	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="naziv" value= '.$Kolicina.'>
-	        <input  type="submit" name="promijeni" value="Promijeni količinu">
+	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
+	        <input  type="submit" name="prom" value="Promijeni količinu">
 	        <input type="number" name="id" value= '.$id1.'></br>
 	        </form>';
 		}
@@ -37,6 +35,19 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 		}
 }
 
+if (isset($_POST['prom'])){	
+	if ($_POST['kolicina']){
+	$Kolicina=$_POST['kolicina'];
+	$result1=mysqli_query($conn,"UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id1'");
+		if ($result === TRUE) {
+	echo "<br>Saved! Stanje ".$Naziv." je sada ".$Kolicina."</br>";
+	}
+	else{
+	echo "nest nije ok";
+}
+}
+}
+	
 $conn->close()
 ?>
 
