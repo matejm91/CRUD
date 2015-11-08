@@ -25,11 +25,11 @@ $password = "**********";
 $ime_baze = "********************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
-if(isset($_GET['true']) ? $_GET['true'] : 'created'){
-	echo '<p>Proizvod uspješno stvoren</p>';
-} elseif (isset($_GET['true']) ? $_GET['true'] : 'updated'){
+if(isset($_GET['created']) ? $_GET['created'] : 'true'){
+	echo 'Proizvod uspješno stvoren';
+} elseif (isset($_GET['updated']) ? $_GET['updated'] : 'true'){
 	echo 'Proizvod uspješno promijenjen';
-} elseif(isset($_GET['true']) ? $_GET['true'] : 'deleted'){
+} elseif(isset($_GET['deleted']) ? $_GET['deleted'] : 'true'){
 	echo 'Proizvod uspješno obrisan';
 }
 $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
