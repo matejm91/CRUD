@@ -22,7 +22,7 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 	 	 $id=$row['ID_Proizvoda'];
   		echo '<h3>Promijeni stanje proizvodu</h3>
 
-		<br><form method="post" form accept-charset="utf-8" action="update.php" id="searchform">
+		<br><form method="post" form accept-charset="utf-8" action="update2.php" id="searchform">
 	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
 	        <input  type="submit" name="prom" value="Promijeni količinu">
 	        <input type="hidden" name="id" value= '.$id1.'></br>
@@ -31,22 +31,8 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 		} 
   		else 
 		{
-		echo "Problem!!";
+		echo "Problem";
 		}
-}
-
-if (isset($_POST['prom'])){	
-	if ($_POST['kolicina']){
-	if ($_POST['id']){
-	$id=$_POST['id'];
-	$Kolicina=$_POST['kolicina'];
-	$result1=mysqli_query($conn, "UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id' ");
-	echo "<br>Spremljeno! Stanje je sada ".$Kolicina."</br>";
-	}
-	else{
-	echo "Nešto nije u redu";
-}
-}
 }	
 $conn->close()
 ?>
