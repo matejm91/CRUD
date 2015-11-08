@@ -1,7 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "********";
-$password = "****************";
+$username = "**********";
+$password = "**********";
+$ime_baze = "********************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);  
 $id = $_GET['id'];
 
@@ -9,10 +10,10 @@ $id = $_GET['id'];
 	$query="DELETE FROM Proizvod WHERE ID = '$id'";
 	$result=mysqli_query($conn, $query);	
 	if ($result === TRUE){
-	header('Location:index.php');
+	header('Location:index.php?deleted=true');
 	}
 	else{
-	echo "Nesto nije u redu!";
+	echo "Nešto nije u redu!";
 }
 $conn->close();
 ?> 
