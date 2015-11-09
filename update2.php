@@ -10,6 +10,9 @@ if (isset($_POST['prom'])){
 	if ($_POST['id']){
 	$id=$_POST['id'];
 	$Kolicina=$_POST['kolicina'];
+		if (!preg_match('/^[0-9]*$/', $Kolicina)) {
+        		echo "Unijeli ste nemoguću vrijednost" . '<br><a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a></br>';
+	}
 	$result1=mysqli_query($conn, "UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id' ");
 	header('Location:index.php?updated=true'); 
 	}
