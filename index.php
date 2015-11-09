@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body>
+	<?php
+	if(isset($_GET['created']) && $_GET['created'] === 'true'){
+	echo '<p>Proizvod uspješno stvoren</p>';
+}
+elseif(isset($_GET['updated']) && $_GET['updated'] === 'true'){
+	echo '<p>Proizvod uspješno promijenjen</p>';
+}
+elseif(isset($_GET['deleted']) && $_GET['deleted'] === 'true'){
+	echo '<p>Proizvod uspješno obrisan</p>';
+}	
+	?>
 	<head> 
 	<meta charset="utf-8"> 
 	<title>Traži proizvod</title> 
@@ -20,20 +31,11 @@
 <br>
 <?php
 $servername = "localhost";
-$username = "************";
-$password = "************";
-$ime_baze = "************************";
+$username = "**********";
+$password = "**********";
+$ime_baze = "**********************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
-if(isset($_GET['created']) && $_GET['created'] === 'true'){
-	echo '<p>Proizvod uspješno stvoren</p>';
-}
-elseif(isset($_GET['updated']) && $_GET['updated'] === 'true'){
-	echo '<p>Proizvod uspješno promijenjen</p>';
-}
-elseif(isset($_GET['deleted']) && $_GET['deleted'] === 'true'){
-	echo '<p>Proizvod uspješno obrisan</p>';
-}
 $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
   $result=mysqli_query($conn, $sql);
   if ($result->num_rows > 0) { 
