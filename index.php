@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<?php
-	if(isset($_GET['created']) && $_GET['created'] === 'true'){
-	echo '<p>Proizvod uspješno stvoren</p>';
-}
-elseif(isset($_GET['updated']) && $_GET['updated'] === 'true'){
-	echo '<p>Proizvod uspješno promijenjen</p>';
-}
-elseif(isset($_GET['deleted']) && $_GET['deleted'] === 'true'){
-	echo '<p>Proizvod uspješno obrisan</p>';
-}	
-	?>
-	<head> 
-	<meta charset="utf-8"> 
-	<title>Traži proizvod</title> 
-	</head> 
+	
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<meta charset="utf-8"> 
+<title>Traži proizvod</title> 
+</head> 
+
+<?php
+	$stvoren="Proizvod uspješno stvoren";
+	$promijenjen="Stanje proizvoda uspješno promijenjeno";
+	$obrisan="Proizvod uspješno obrisan"; 
+	if(isset($_GET['created']) && $_GET['created'] === 'true') {
+		echo '<p>'.$stvoren.'</p>';
+	} elseif (isset($_GET['updated']) && $_GET['updated'] === 'true') {
+		echo '<p>'.$promijenjen.'</p>';
+	} elseif (isset($_GET['deleted']) && $_GET['deleted'] === 'true') {
+		echo '<p>'.$obrisan.'</p>';
+	}	
+?>
  
 <h3>Traži proizvod</h3> 
 	<p>Pretraga moguća po imenu</p> 
@@ -31,9 +35,9 @@ elseif(isset($_GET['deleted']) && $_GET['deleted'] === 'true'){
 <br>
 <?php
 $servername = "localhost";
-$username = "**********";
-$password = "**********";
-$ime_baze = "**********************";
+$username = "*********";
+$password = "*********";
+$ime_baze = "******************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
@@ -64,6 +68,8 @@ $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $
   echo  "<p>Molimo unesite upit za pretraživanje</p>";     
 }
 $conn->close();
-?> 	
+?>
+<script>
+</script>
 </body>
 </html>
