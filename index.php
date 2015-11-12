@@ -3,6 +3,10 @@
 <body>
 	
 <head>
+<style>
+.obavijest {	
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <meta charset="utf-8"> 
 <title>Traži proizvod</title> 
@@ -13,11 +17,11 @@
 	$promijenjen="Stanje proizvoda uspješno promijenjeno";
 	$obrisan="Proizvod uspješno obrisan"; 
 	if(isset($_GET['created']) && $_GET['created'] === 'true') {
-		echo '<p>'.$stvoren.'</p>';
+		echo '<div class="obavijest">'.$stvoren.'</div>';
 	} elseif (isset($_GET['updated']) && $_GET['updated'] === 'true') {
-		echo '<p>'.$promijenjen.'</p>';
+		echo '<div class="obavijest">'.$promijenjen.'</div>';
 	} elseif (isset($_GET['deleted']) && $_GET['deleted'] === 'true') {
-		echo '<p>'.$obrisan.'</p>';
+		echo '<div class="obavijest">'.$obrisan.'</div>';
 	}	
 ?>
  
@@ -35,9 +39,9 @@
 <br>
 <?php
 $servername = "localhost";
-$username = "*********";
-$password = "*********";
-$ime_baze = "******************";
+$username = "**********";
+$password = "**********";
+$ime_baze = "********************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
@@ -70,6 +74,10 @@ $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $
 $conn->close();
 ?>
 <script>
+$(document).ready(function(){
+	    setTimeout(function(){
+	        $('.obavijest').hide();}, 5000);
+	});
 </script>
 </body>
 </html>
