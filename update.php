@@ -1,15 +1,26 @@
 ﻿<!DOCTYPE html>
 <html>
-<head> 
-	<meta charset="utf-8">  
-</head>
+<head>
+	<style>
+	.obavijest {	
+	}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<meta charset="utf-8"> 
+	<title>Traži proizvod</title> 
+	<meta name ="viewport" content="width=device-width, intital-scale=1.0">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/coustom.css">
+</head> 
 <body>
-
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 <?php
 $servername = "localhost";
-$username = "**********";
-$password = "**********";
-$ime_baze = "********************";
+$username = "********";
+$password = "********";
+$ime_baze = "************************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
@@ -24,7 +35,7 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 
 		<br><form method="post" form accept-charset="utf-8" action="update2.php" id="searchform">
 	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
-	        <input  type="submit" name="prom" value="Promijeni količinu">
+	        <input class="btn btn-primary" type="submit" name="prom" value="Promijeni količinu">
 	        <input type="hidden" name="id" value= '.$id1.'></br>
 	        </form>';
 		}
@@ -36,6 +47,9 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 }	
 $conn->close()
 ?>
-<a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a>
+<br><a href="http://sve91.com.hr/products.php" class="btn btn-primary">Vrati se na početnu stranicu</a></br>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
