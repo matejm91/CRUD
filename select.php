@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head> 
-	<meta charset="utf-8">  
-</head>
+<head>
+	<style>
+	.obavijest {	
+	}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<meta charset="utf-8"> 
+	<title>Traži proizvod</title> 
+	<meta name ="viewport" content="width=device-width, intital-scale=1.0">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/coustom.css">
+</head> 
 <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
 
 <?php 
 $servername = "localhost";
-$username = "***********";
-$password = "***********";
-$ime_baze = "**********************";
+$username = "*********";
+$password = "*********";
+$ime_baze = "******************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if(isset($_POST['submit'])){ 
@@ -32,8 +45,8 @@ if(isset($_POST['submit'])){
 		 echo "<tr>
           <td>" . $row['Naziv'] . "</td>
           <td>" . $row['Kolicina'] . "</td>
-          <td>" . "<a href=\"http://sve91.com.hr/update.php?id=". $row['ID_Proizvoda'] ."\">Promijeni</a>" . "</td>
-          <td>" . " <a href=\"http://sve91.com.hr/delete.php?id=". $row['ID_Proizvoda'] ."\">Obriši proizvod</a>" . "</td>
+          <td>" . "<a href=\"http://sve91.com.hr/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
+          <td>" . " <a href=\"http://sve91.com.hr/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Obriši proizvod</a>" . "</td>
            
    </tr>";
 		}
@@ -47,6 +60,9 @@ if(isset($_POST['submit'])){
  
 $conn->close();
 ?>
-<a href="http://sve91.com.hr/index.php">Vrati se na početnu stranicu</a>
+<br><a href="http://sve91.com.hr/products.php" class="btn btn-primary">Vrati se na početnu stranicu</a></br>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
