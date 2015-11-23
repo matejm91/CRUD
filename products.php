@@ -1,6 +1,24 @@
+<?php
+  session_start();
+  if($_SESSION['login'] != "OK")
+  {
+    header('Location: index.php');
+    exit();
+  }
+?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		echo "<p>You have successfully logged in!</p>";
+		echo "<p>Your username is: ";
+		echo $_SESSION['username'];
+		echo "<br/>";
+		echo "Your password is: ";
+		echo $_SESSION['password'];
+		echo "</p>"
+	?>
 	<style>
 	.obavijest {
 		text-align:center;
