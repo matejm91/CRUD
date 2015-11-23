@@ -10,7 +10,7 @@ $id = $_GET['id'];
 	$query="DELETE FROM Proizvod WHERE ID = '$id'";
 	$result=mysqli_query($conn, $query);	
 	if ($result === TRUE){
-	header('Location:index.php?deleted=true');
+	header('Location:products.php?deleted=true');
 	}
 	else{
 	echo "Nešto nije u redu!";
