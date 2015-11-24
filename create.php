@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
 
 	
 <br><form action="create2.php" method="post" form accept-charset="utf-8">
@@ -27,7 +27,7 @@
 	 </form> 
 
 
-<br><a href="http://sve91.com.hr/products.php" class="btn btn-primary">Vrati se na početnu stranicu</a></br>
+<br><a href="http://sve91.com.hr/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
