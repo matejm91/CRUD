@@ -35,20 +35,22 @@ if(isset($_POST['submit'])){
         $kolicina=$row['Kolicina'];
 	$id=$row['ID_Proizvoda'];
 	 	echo "<table border = 1>";
-		echo "<tr>
-         <td>Naziv proizvoda</td>
-         <td>Količina</td>
-         <td></td>
-         <td></td>
-   </tr>";
+		echo '<div class="container">
+			<table class="table table-striped" border = 1>
+			<tr>
+         		<td><b>Naziv proizvoda</b></td>
+         		<td><b>Količina</b></td>
+         		<td></td>
+         		<td></td>
+   			</tr></div>';
 		while($row = mysqli_fetch_array($result)){
-		 echo "<tr>
+		 echo "<br><tr>
           <td>" . $row['Naziv'] . "</td>
           <td>" . $row['Kolicina'] . "</td>
           <td>" . "<a href=\"http://sve91.com.hr/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
-          <td>" . " <a href=\"http://sve91.com.hr/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Obriši proizvod</a>" . "</td>
+          <td>" . " <a href=\"http://sve91.com.hr/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-danger btn-md'".">Obriši proizvod</a>" . "</td>
            
-   </tr>";
+   </tr></br>";
 		}
 
 		 echo "</table>";
@@ -60,7 +62,7 @@ if(isset($_POST['submit'])){
  
 $conn->close();
 ?>
-<br><a href="http://sve91.com.hr/products.php" class="btn btn-primary">Vrati se na početnu stranicu</a></br>
+<br><a href="http://sve91.com.hr/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
