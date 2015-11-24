@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "**********";
-$password = "**********";
-$ime_baze = "********************";
+$username = "********";
+$password = "********";
+$ime_baze = "****************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);  
 $id = $_GET['id'];
 
