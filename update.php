@@ -18,9 +18,9 @@
 			<div class="col-md-12">
 <?php
 $servername = "localhost";
-$username = "********";
-$password = "********";
-$ime_baze = "************************";
+$username = "*********";
+$password = "*********";
+$ime_baze = "******************";
 $conn = new mysqli($servername, $username, $password, $ime_baze);
 mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
@@ -47,7 +47,7 @@ if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
 }	
 $conn->close()
 ?>
-<br><a href="http://sve91.com.hr/products.php" class="btn btn-primary">Vrati se na početnu stranicu</a></br>
+<br><a href="http://sve91.com.hr/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
