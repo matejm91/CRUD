@@ -12,7 +12,7 @@
   session_start();
   if($user!=""&&$pass!="")
   {
-    if($user=="**********"&&$pass=="**********") $validated = true;
+    if($user=="*******"&&$pass=="************") $validated = true;
     if($validated)
     {
       $_SESSION['login'] = "OK";
@@ -37,13 +37,16 @@
 	<meta name ="viewport" content="width=device-width, intital-scale=1.0">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/coustom.css">
+	
 </head> 
 <body>
-	<h1>Prijavi se</h1>
-	<br><p>Molimo unesite korisničko ime i šifru:</p></br>
+	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">	
+			<div class="col-md-4">
+	<h1>Prijavi se</h1>
+	<br><p>Molimo unesite korisničko ime i šifru:</p></br>
+	
 <form action="index.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
