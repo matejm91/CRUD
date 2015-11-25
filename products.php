@@ -55,9 +55,9 @@
 
 <?php
 	$servername = "localhost";
-	$username = "svecomhr";
-	$password = "06Stlu6fO2";
-	$ime_baze = "svecomhr_test1";
+	$username = "*********";
+	$password = "***********";
+	$ime_baze = "*******************";
 	$conn = new mysqli($servername, $username, $password, $ime_baze);
 	mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
 	$sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID = Stanje.ID_Proizvoda AND Naziv LIKE '%" . $name .  "%' ORDER BY Naziv ASC"; 
