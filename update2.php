@@ -10,12 +10,12 @@
 		$Kolicina=$_POST['kolicina'];
 		if (is_numeric($Kolicina)) {
 			if ($Kolicina < 0) {
-				echo "<br>"."Unešena vrijednost je: ".(filter_var($Kolicina, FILTER_SANITIZE_STRING))."</br>", "Unijeli ste nemoguću vrijednost" . '<br><a href="http://sve91.com.hr/products.php">Vrati se na početnu stranicu</a></br>';
+				echo "<br>"."Unešena vrijednost je: ".(filter_var($Kolicina, FILTER_SANITIZE_STRING))."</br>", "Unijeli ste nemoguću vrijednost" . '<br><a href="http://sve91.com.hr/test/products.php">Vrati se na početnu stranicu</a></br>';
 			} 
 			else {
 				$sql = "UPDATE Stanje SET Kolicina = '$Kolicina' WHERE ID_Proizvoda = '$id'";
 				if ($conn->query($sql) === TRUE) {
-					header('Location:products.php?updated=true');
+					header('Location:/test/products.php?updated=true');
 				} else {
 					echo "Greška: " . $sql . "<br>" . $conn->error;
 				} 
