@@ -12,7 +12,7 @@
 	session_start();
 	if($user!=""&&$pass!="")
 	{
-		if($user=="CRUD"&&$pass=="letmein") $validated = true;
+		if($user=="******"&&$pass=="*****") $validated = true;
   		if($validated)
 		{
 			$_SESSION['login'] = "OK";
