@@ -17,37 +17,37 @@
 		<div class="row">
 			<div class="col-md-12">
 <?php
-$servername = "localhost";
-$username = "*********";
-$password = "*********";
-$ime_baze = "******************";
-$conn = new mysqli($servername, $username, $password, $ime_baze);
-mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
-if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
-	$id1=$_GET['id'];
-	$result=mysqli_query($conn, "SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID='$id1' AND Stanje.ID_Proizvoda='$id1'");
-	if ($result->num_rows > 0) { 
-		while($row= $result->fetch_assoc()){ 
-       	 	 $Naziv  =$row['Naziv'];  
-       		 $Kolicina=$row['Kolicina'];
-	 	 $id=$row['ID_Proizvoda'];
-  		echo '<h3>Promijeni stanje proizvodu</h3>
+	$servername = "localhost";
+	$username = "*********";
+	$password = "**********";
+	$ime_baze = "****************";
+	$conn = new mysqli($servername, $username, $password, $ime_baze);
+	mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', 	character_set_database = 'utf8', character_set_server = 'utf8'");
+	if (isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''){
+		$id1=$_GET['id'];
+		$result=mysqli_query($conn, "SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID='$id1' AND Stanje.ID_Proizvoda='$id1'");
+		if ($result->num_rows > 0) { 
+			while($row= $result->fetch_assoc()){ 
+       	 	 		$Naziv  =$row['Naziv'];  
+       		 		$Kolicina=$row['Kolicina'];
+	 	 		$id=$row['ID_Proizvoda'];
+  				echo '<h3>Promijeni stanje proizvodu</h3>
 
-		<br><form method="post" form accept-charset="utf-8" action="update2.php" id="searchform">
-	        Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
-	        <input class="btn btn-primary" type="submit" name="prom" value="Promijeni količinu">
-	        <input type="hidden" name="id" value= '.$id1.'></br>
-	        </form>';
+				<br><form method="post" form accept-charset="utf-8" action="/test/update2.php" id="searchform">
+	        		Stanje proizvoda '. $Naziv .' je <input  type="number" name="kolicina" value= '.$Kolicina.'>
+	        		<input class="btn btn-primary" type="submit" name="prom" value="Promijeni količinu">
+	        		<input type="hidden" name="id" value= '.$id1.'></br>
+				</form>';
+				}
+			} 
+  			else 
+			{
+			echo "Problem";
 		}
-		} 
-  		else 
-		{
-		echo "Problem";
-		}
-}	
-$conn->close()
+	}	
+	$conn->close()
 ?>
-<br><a href="http://sve91.com.hr/products.php" class="btn">Vrati se na početnu stranicu</a></br>
+<br><a href="http://sve91.com.hr/test/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
