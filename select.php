@@ -19,18 +19,18 @@
 
 
 <?php 
-$servername = "localhost";
-$username = "*********";
-$password = "*********";
-$ime_baze = "******************";
-$conn = new mysqli($servername, $username, $password, $ime_baze);
-mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
-if(isset($_POST['submit'])){ 
-  if($_POST['name']){	  
-  $name=$_POST['name']; 
-  $sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Naziv LIKE '%" . $name .  "%' AND Proizvod.ID = Stanje.ID_Proizvoda"; 
-  $result=mysqli_query($conn, $sql);
-  if ($result->num_rows > 0) { 
+	$servername = "localhost";
+	$username = "svecomhr";
+	$password = "06Stlu6fO2";
+	$ime_baze = "svecomhr_test1";
+	$conn = new mysqli($servername, $username, $password, $ime_baze);
+	mysqli_query($conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
+	if(isset($_POST['submit'])){ 
+		if($_POST['name']){	  
+		$name=$_POST['name']; 
+		$sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID = Stanje.ID_Proizvoda AND Naziv LIKE '%" . $name .  "%' ORDER BY Naziv ASC"; 
+		$result=mysqli_query($conn, $sql);
+		if ($result->num_rows > 0) { 
   	$Naziv  =$row['Naziv'];  
         $kolicina=$row['Kolicina'];
 	$id=$row['ID_Proizvoda'];
@@ -47,8 +47,8 @@ if(isset($_POST['submit'])){
 		 echo "<br><tr>
           <td>" . $row['Naziv'] . "</td>
           <td>" . $row['Kolicina'] . "</td>
-          <td>" . "<a href=\"http://sve91.com.hr/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
-          <td>" . " <a href=\"http://sve91.com.hr/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-danger btn-md'".">Obriši proizvod</a>" . "</td>
+          <td>" . "<a href=\"http://sve91.com.hr/test/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
+          <td>" . " <a href=\"http://sve91.com.hr/test/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-danger btn-md'".">Obriši proizvod</a>" . "</td>
            
    </tr></br>";
 		}
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
  
 $conn->close();
 ?>
-<br><a href="http://sve91.com.hr/products.php" class="btn">Vrati se na početnu stranicu</a></br>
+<br><a href="http://sve91.com.hr/test/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
