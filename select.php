@@ -31,36 +31,34 @@
 		$sql="SELECT Proizvod.*, Stanje.* FROM Proizvod, Stanje WHERE Proizvod.ID = Stanje.ID_Proizvoda AND Naziv LIKE '%" . $name .  "%' ORDER BY Naziv ASC"; 
 		$result=mysqli_query($conn, $sql);
 		if ($result->num_rows > 0) { 
-  	$Naziv  =$row['Naziv'];  
-        $kolicina=$row['Kolicina'];
-	$id=$row['ID_Proizvoda'];
-	 	echo "<table border = 1>";
-		echo '<div class="container">
-			<table class="table table-striped" border = 1>
-			<tr>
-         		<td><b>Naziv proizvoda</b></td>
-         		<td><b>Količina</b></td>
-         		<td></td>
-         		<td></td>
-   			</tr></div>';
-		while($row = mysqli_fetch_array($result)){
-		 echo "<br><tr>
-          <td>" . $row['Naziv'] . "</td>
-          <td>" . $row['Kolicina'] . "</td>
-          <td>" . "<a href=\"http://sve91.com.hr/test/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
-          <td>" . " <a href=\"http://sve91.com.hr/test/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-danger btn-md'".">Obriši proizvod</a>" . "</td>
-           
-   </tr></br>";
+  			$Naziv  =$row['Naziv'];  
+        		$kolicina=$row['Kolicina'];
+			$id=$row['ID_Proizvoda'];
+	 			echo "<table border = 1>";
+				echo '<div class="container">
+					<table class="table table-striped" border = 1>
+					<tr>
+         				<td><b>Naziv proizvoda</b></td>
+         				<td><b>Količina</b></td>
+         				<td></td>
+         				<td></td>
+   					</tr></div>';
+			while($row = mysqli_fetch_array($result)){
+		 		echo "<br><tr>
+          			<td>" . $row['Naziv'] . "</td>
+          			<td>" . $row['Kolicina'] . "</td>
+          			<td>" . "<a href=\"http://sve91.com.hr/test/update.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-primary btn-md'".">Promijeni</a>" . "</td>
+          			<td>" . " <a href=\"http://sve91.com.hr/test/delete.php?id=". $row['ID_Proizvoda'] ."\""."class='btn btn-danger btn-md'".">Obriši proizvod</a>" . "</td>
+           			</tr></br>";
+				}
+		 		echo "</table>";
+  		 	}else{ 
+  				echo  "<p>Molimo unesite upit za pretraživanje</p>";     
+  		 		
+  		 	}
 		}
-
-		 echo "</table>";
-  		 }else{ 
-  echo  "<p>Molimo unesite upit za pretraživanje</p>";     
-  }
-  }
-  } 
- 
-$conn->close();
+  	} 
+	$conn->close();
 ?>
 <br><a href="http://sve91.com.hr/test/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
