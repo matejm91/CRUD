@@ -60,7 +60,7 @@
   	} 
 	$conn->close();
 ?>
-<br><a href="http://sve91.com.hr/test/products.php" class="btn">Vrati se na početnu stranicu</a></br>
+				<br><a href="http://sve91.com.hr/test/products.php" class="btn">Vrati se na početnu stranicu</a></br>
 			</div>
 		</div>
 	</div>
